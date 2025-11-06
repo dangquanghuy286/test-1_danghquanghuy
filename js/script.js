@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Function to add product to cart
+  // Function to add to cart
   function addToCart() {
     const productSection = document.querySelector(".product-section");
     const productTitle =
@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
       emptyMessage.remove();
     }
 
-    // Check if product with same variant already exists in cart
     const existingItem = findCartItem(productTitle, productVariant);
 
     if (existingItem) {
@@ -115,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     cartOffcanvas.show();
 
-    // Reset product quantity to 1
+    // default 1
     productSection.querySelector(".quantity-product").value = 1;
   }
 
@@ -184,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return div;
   }
 
-  // Handle increase/decrease quantity buttons
+  // Handle increase/decrease
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("plus-btn")) {
       const input = e.target.previousElementSibling;
