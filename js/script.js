@@ -28,13 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
       totalElement.textContent = `$${total.toFixed(2)} USD`;
     }
 
-    // Update item count in cart icon
+    // Update item count
     const countBoxes = document.querySelectorAll(".nav-cart .count-box");
     countBoxes.forEach((box) => {
       box.textContent = totalItems;
     });
-
-    // Update progress bar free shipping
     updateShippingProgress(total);
   }
 
@@ -49,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
       progressBar.setAttribute("data-progress", progress);
     }
 
-    //
     const remainingAmount = Math.max(freeShippingThreshold - total, 0);
     const thresholdText = document.querySelector(
       ".tf-mini-cart-threshold .text"
@@ -60,9 +57,131 @@ document.addEventListener("DOMContentLoaded", function () {
           2
         )}</span> more to get <span class="fw-medium">Free Shipping</span>`;
       } else {
-        thresholdText.innerHTML = ` You've got <span class="fw-medium">Free Shipping!</span>`;
+        thresholdText.innerHTML = `You've got <span class="fw-medium">Free Shipping!</span>`;
       }
     }
+  }
+
+  // Function to add product to cart
+  function addToCart() {
+    const productSection = document.querySelector(".product-section");
+    const productTitle =
+      productSection.querySelector(".product-title").textContent;
+    const productPrice =
+      productSection.querySelector(".product-price").textContent;
+    const productImage = productSection.querySelector(".product-image img").src;
+    const productVariant = productSection.querySelector(
+      ".product-variant select"
+    ).value;
+    const productQuantity = parseInt(
+      productSection.querySelector(".quantity-product").value
+    );
+
+    // Check if cart empty message exists and remove it
+    const emptyMessage = document.querySelector(
+      ".tf-mini-cart-items .text-center"
+    );
+    if (emptyMessage) {
+      emptyMessage.remove();
+    }
+
+    // Check if product with same variant already exists in cart
+    const existingItem = findCartItem(productTitle, productVariant);
+
+    if (existingItem) {
+      // Update quantity of existing item
+      const quantityInput = existingItem.querySelector(".quantity-product");
+      const currentQty = parseInt(quantityInput.value);
+      quantityInput.value = currentQty + productQuantity;
+    } else {
+      // Create new cart item
+      const cartItemsContainer = document.querySelector(".tf-mini-cart-items");
+      const newItem = createCartItem(
+        productTitle,
+        productPrice,
+        productImage,
+        productVariant,
+        productQuantity
+      );
+      cartItemsContainer.appendChild(newItem);
+    }
+
+    // Update cart totals
+    updateCart();
+
+    // Open cart sidebar
+    const cartOffcanvas = new bootstrap.Offcanvas(
+      document.getElementById("shoppingCart")
+    );
+    cartOffcanvas.show();
+
+    // Reset product quantity to 1
+    productSection.querySelector(".quantity-product").value = 1;
+  }
+
+  // Find existing cart item
+  function findCartItem(title, variant) {
+    const cartItems = document.querySelectorAll(".tf-mini-cart-item");
+    for (let item of cartItems) {
+      const itemTitle = item.querySelector(".title").textContent;
+      const itemVariant = item.querySelector(".info-variant select").value;
+      if (itemTitle === title && itemVariant === variant) {
+        return item;
+      }
+    }
+    return null;
+  }
+
+  // Create cart item element
+  function createCartItem(title, price, image, variant, quantity) {
+    const div = document.createElement("div");
+    div.className = "tf-mini-cart-item file-delete";
+
+    const priceValue = price.replace("$", "").trim();
+
+    div.innerHTML = `
+      <div class="tf-mini-cart-image">
+        <a href="product-detail.html">
+          <img
+            class="ls-is-cached lazyloaded"
+            data-src="${image}"
+            src="${image}"
+            alt="img-product"
+          />
+        </a>
+      </div>
+      <div class="tf-mini-cart-info">
+        <div class="d-flex justify-content-between">
+          <a
+            class="title link text-md fw-medium"
+            href="product-detail.html"
+            >${title}</a
+          >
+          <i class="icon icon-close remove fs-12"></i>
+        </div>
+        <div class="info-variant">
+          <select class="text-xs">
+            <option value="${variant}" selected>${variant}</option>
+          </select>
+          <i class="icon-pen edit"></i>
+        </div>
+        <p class="price-wrap text-sm fw-medium">
+          <span class="new-price text-primary">$${priceValue}</span>
+        </p>
+        <div class="wg-quantity small">
+          <button class="btn-quantity minus-btn">-</button>
+          <input
+            class="quantity-product font-4"
+            type="text"
+            name="number"
+            value="${quantity}"
+          />
+          <button class="btn-quantity plus-btn">+</button>
+        </div>
+      </div>
+    `;
+
+    return div;
   }
 
   // Handle increase/decrease quantity buttons
@@ -100,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
         item.remove();
         updateCart();
 
-        // Check if cart is empty
         const remainingItems = document.querySelectorAll(".tf-mini-cart-item");
         if (remainingItems.length === 0) {
           const cartItems = document.querySelector(".tf-mini-cart-items");
@@ -113,5 +231,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  const addToCartBtn = document.querySelector(".add-to-cart-btn");
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", addToCart);
+  }
+
+  // Initial cart update
   updateCart();
 });
