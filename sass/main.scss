@@ -735,6 +735,7 @@ $font-main: "Instrument Sans", sans-serif;
     background-color: #f1f1f1;
     border-radius: 43px;
     overflow: hidden;
+    margin: 12px 0;
 
     .quantity-product {
         width: 42px;
@@ -814,10 +815,6 @@ $font-main: "Instrument Sans", sans-serif;
     }
 }
 
-
-
-
-
 /* Product Title */
 .product-title {
     font-size: 1.1rem;
@@ -850,13 +847,7 @@ $font-main: "Instrument Sans", sans-serif;
     border-color: #000;
 }
 
-/* Quantity Control */
-.wg-quantity {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 12px 0;
-}
+
 
 .btn-quantity {
     width: 32px;

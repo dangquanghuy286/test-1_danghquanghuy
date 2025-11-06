@@ -2569,6 +2569,7 @@ h5 {
   background-color: #f1f1f1;
   border-radius: 43px;
   overflow: hidden;
+  margin: 12px 0;
 }
 .wg-quantity .quantity-product {
   width: 42px;
@@ -2668,14 +2669,6 @@ h5 {
 
 .product-variant select:focus {
   border-color: #000;
-}
-
-/* Quantity Control */
-.wg-quantity {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 12px 0;
 }
 
 .btn-quantity {
