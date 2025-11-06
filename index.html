@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/boostrap.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="fonts/font-icons.css" />
+  </head>
+  <body>
+    <header id="header" class="header-default">
+      <div class="container">
+        <div class="row wrapper-header align-items-center">
+          <div class="col-xl-2 col-md-4 col-6">
+            <a href="index.html" class="logo-header">
+              <img src="images/logo.svg" alt="logo" class="logo" />
+            </a>
+          </div>
+
+          <div class="col-xl-2 col-md-4 col-3">
+            <ul class="nav-icon d-flex justify-content-end align-items-center">
+              <li class="nav-search">
+                <a href="#search" data-bs-toggle="modal" class="nav-icon-item">
+                  <i class="icon icon-search"></i>
+                </a>
+              </li>
+              <li class="nav-account">
+                <a
+                  href="#login"
+                  data-bs-toggle="offcanvas"
+                  aria-controls="login"
+                  class="nav-icon-item"
+                >
+                  <i class="icon icon-user"></i>
+                </a>
+              </li>
+              <li class="nav-wishlist">
+                <a href="wish-list.html" class="nav-icon-item">
+                  <i class="icon icon-heart"></i>
+                  <span class="count-box">0</span>
+                </a>
+              </li>
+              <li class="nav-cart">
+                <a
+                  href="#shoppingCart"
+                  data-bs-toggle="offcanvas"
+                  class="nav-icon-item"
+                >
+                  <i class="icon icon-cart"></i>
+                  <span class="count-box">0</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="offcanvas offcanvas-end popup-style-1 popup-shopping-cart"
+      id="shoppingCart"
+      aria-modal="true"
+      role="dialog"
+    >
+      <div class="canvas-wrapper">
+        <div class="popup-header">
+          <span class="">Shopping cart</span>
+          <span
+            class="icon-close icon-close-popup"
+            data-bs-dismiss="offcanvas"
+          ></span>
+        </div>
+        <div class="wrap">
+          <div class="tf-mini-cart-threshold">
+            <div class="text">
+              Spend <span class="fw-medium">$100</span> more to get
+              <span class="fw-medium">Free Shipping</span>
+            </div>
+            <div class="tf-progress-bar tf-progress-ship">
+              <div class="value" style="width: 75%" data-progress="75">
+                <i class="icon icon-car"></i>
+              </div>
+            </div>
+          </div>
+          <div class="tf-mini-cart-wrap">
+            <div class="tf-mini-cart-main">
+              <div class="tf-mini-cart-sroll">
+                <div class="tf-mini-cart-items">
+                  <div class="tf-mini-cart-item file-delete">
+                    <div class="tf-mini-cart-image">
+                      <a href="product-detail.html">
+                        <img
+                          class="ls-is-cached lazyloaded"
+                          data-src="images/women-1.jpg"
+                          src="images/women-1.jpg"
+                          alt="img-product"
+                        />
+                      </a>
+                    </div>
+                    <div class="tf-mini-cart-info">
+                      <div class="d-flex justify-content-between">
+                        <a
+                          class="title link text-md fw-medium"
+                          href="product-detail.html"
+                          >Short Sleeve Sweat</a
+                        >
+                        <i class="icon icon-close remove fs-12"></i>
+                      </div>
+                      <div class="info-variant">
+                        <select class="text-xs">
+                          <option value="White / L">White / L</option>
+                          <option value="White / M">White / M</option>
+                          <option value="Black / L">Black / L</option>
+                        </select>
+                        <i class="icon-pen edit"></i>
+                      </div>
+                      <p class="price-wrap text-sm fw-medium">
+                        <span class="new-price text-primary">$130.00</span>
+                        <span
+                          class="old-price text-decoration-line-through text-dark-1"
+                          >$150.00</span
+                        >
+                      </p>
+                      <div class="wg-quantity small">
+                        <button class="btn-quantity minus-btn">-</button>
+                        <input
+                          class="quantity-product font-4"
+                          type="text"
+                          name="number"
+                          value="1"
+                        />
+                        <button class="btn-quantity plus-btn">+</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tf-mini-cart-item file-delete">
+                    <div class="tf-mini-cart-image">
+                      <a href="product-detail.html">
+                        <img
+                          class="ls-is-cached lazyloaded"
+                          data-src="images/women-2.jpg"
+                          src="images/women-2.jpg"
+                          alt="img-product"
+                        />
+                      </a>
+                    </div>
+                    <div class="tf-mini-cart-info">
+                      <div class="d-flex justify-content-between">
+                        <a
+                          class="title link text-md fw-medium"
+                          href="product-detail.html"
+                          >Loose Fit Tee</a
+                        >
+                        <i class="icon icon-close remove fs-12"></i>
+                      </div>
+                      <div class="info-variant">
+                        <select class="text-xs">
+                          <option value="White / L">White / L</option>
+                          <option value="White / M">White / M</option>
+                          <option value="Black / L">Black / L</option>
+                        </select>
+                        <i class="icon-pen edit"></i>
+                      </div>
+                      <p class="price-wrap text-sm fw-medium">
+                        <span class="new-price text-primary">$130.00</span>
+                        <span
+                          class="old-price text-decoration-line-through text-dark-1"
+                          >$150.00</span
+                        >
+                      </p>
+                      <div class="wg-quantity small">
+                        <button class="btn-quantity minus-btn">-</button>
+                        <input
+                          class="quantity-product font-4"
+                          type="text"
+                          name="number"
+                          value="1"
+                        />
+                        <button class="btn-quantity plus-btn">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tf-mini-cart-bottom">
+              <div class="tf-mini-cart-tool">
+                <div class="tf-mini-cart-tool-btn btn-add-gift">
+                  <i class="icon icon-gift2"></i>
+                  <div class="text-xxs">Add gift wrap</div>
+                </div>
+                <div class="tf-mini-cart-tool-btn btn-add-note">
+                  <i class="icon icon-note"></i>
+                  <div class="text-xxs">Order note</div>
+                </div>
+                <div class="tf-mini-cart-tool-btn btn-coupon">
+                  <i class="icon icon-coupon"></i>
+                  <div class="text-xxs">Coupon</div>
+                </div>
+                <div class="tf-mini-cart-tool-btn btn-estimate-shipping">
+                  <i class="icon icon-car"></i>
+                  <div class="text-xxs">Shipping</div>
+                </div>
+              </div>
+
+              <div class="tf-mini-cart-bottom-wrap">
+                <div class="tf-cart-totals-discounts">
+                  <div class="tf-cart-total text-xl fw-medium">Total:</div>
+                  <div class="tf-totals-total-value text-xl fw-medium">
+                    $130.00 USD
+                  </div>
+                </div>
+                <div class="tf-cart-tax text-sm opacity-8">
+                  Taxes and shipping calculated at checkout
+                </div>
+                <div class="tf-cart-checkbox">
+                  <div class="tf-checkbox-wrapp">
+                    <input
+                      class=""
+                      type="checkbox"
+                      id="CartDrawer-Form_agree"
+                      name="agree_checkbox"
+                    />
+                    <div>
+                      <i class="icon-check"></i>
+                    </div>
+                  </div>
+                  <label for="CartDrawer-Form_agree" class="text-sm">
+                    I agree with the
+                    <a
+                      href="term-and-condition.html"
+                      title="Terms of Service"
+                      class="fw-medium"
+                      >terms and conditions</a
+                    >
+                  </label>
+                </div>
+                <div class="tf-mini-cart-view-checkout">
+                  <a
+                    href="checkout.html"
+                    class="tf-btn animate-btn d-inline-flex bg-dark-2 w-100 justify-content-center"
+                    ><span>Check out</span></a
+                  >
+                  <a
+                    href="view-cart.html"
+                    class="tf-btn btn-out-line-dark2 w-100 justify-content-center"
+                    >View cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
