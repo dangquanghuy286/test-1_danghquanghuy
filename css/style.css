@@ -2166,6 +2166,10 @@ h5 {
 }
 .popup-shopping-cart .popup-header .icon-close-popup {
   padding-right: 0;
+  cursor: pointer;
+}
+.popup-shopping-cart .popup-header .icon-close-popup:hover {
+  color: #57ebde !important;
 }
 .popup-shopping-cart.style-empty .popup-header .icon-close-popup {
   padding-right: 10px;
@@ -2669,18 +2673,6 @@ h5 {
 
 .product-variant select:focus {
   border-color: #000;
-}
-
-.btn-quantity {
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 8px;
-  background: #f3f3f3;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 .btn-quantity:hover {

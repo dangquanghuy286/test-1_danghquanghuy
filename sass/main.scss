@@ -236,6 +236,11 @@ $font-main: "Instrument Sans", sans-serif;
 
     .popup-header .icon-close-popup {
         padding-right: 0;
+        cursor: pointer;
+
+        &:hover {
+            color: #57ebde !important;
+        }
     }
 
 
@@ -848,18 +853,6 @@ $font-main: "Instrument Sans", sans-serif;
 }
 
 
-
-.btn-quantity {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 8px;
-    background: #f3f3f3;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s ease;
-}
 
 .btn-quantity:hover {
     background: #000;
